@@ -1,12 +1,10 @@
 from os import system
 filename:str = "students.txt"
-
 def addstudent():
     system("cls")
     print("-------------------------")
     print("Add Student Information")
     print("-------------------------")
-
     with open(filename, 'a') as f:
         idno = input("Enter IdNo: ")
         lastName = input("Enter Last Name: ")
@@ -16,7 +14,6 @@ def addstudent():
         entry = f" Id No: {idno}, Last Name: {lastName}, First Name: {firstName}, Course: {course}, Year Level: {yearLevel}\n"
         f.write(entry)
     print("Student added Successfully")
-
 def findstudent():
     system("cls")
     print("-------------------------")
@@ -33,7 +30,6 @@ def findstudent():
                 break
     if not found:
         print(f"Id No {studentFind} is not found.")
-
 def updatestudent():
     system("cls")
     print("---------------------------")
@@ -54,14 +50,12 @@ def updatestudent():
                 updated = True
             else:
                 students.append(line)
-
     if updated:
         with open(filename, 'w') as f:
             f.writelines(students)
         print(f"Id No {studentUpdate} is updated.")
     else:
         print(f"Id No {studentUpdate} is not found.")
-
 def removestudent():
     system("cls")
     print("-------------------------")
@@ -77,14 +71,12 @@ def removestudent():
                 print(line.strip())
             else:
                 deleted = True
-
     if deleted:
         with open(filename, 'w') as f:
             f.writelines(students)
         print(f"Id No {studentDelete} deleted.")
     else:
         print(f"Id No {studentDelete} not found.")
-
 def displayallstudent():
     system("cls")
     with open(filename, 'r') as f:
@@ -92,7 +84,6 @@ def displayallstudent():
         for line in f:
             print(line.strip())
     input("Press Enter to continue...")
-
 def displaymenu():
     print("------- Main Menu -------")
     print("1. Add Student")
@@ -102,7 +93,6 @@ def displaymenu():
     print("5. Display All Student")
     print("0. Quit/End")
     print("-------------------------")
-
 def main():
     while True:
         displaymenu()
@@ -136,6 +126,5 @@ def main():
             f.close()
         else:
             print("Invalid option. Please choose a valid option (0..5).")
-
 if _name_ == "_main_":
     main()
